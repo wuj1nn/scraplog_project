@@ -40,7 +40,7 @@ if(current_user()){
       <p>Junkshop Inventory and Sales Analytics Management System</p>
       <a class="btnGold lpCta" href="#features">Explore our features</a>
       <div class="heroChips">
-        <span>Bakal</span><span>Tanso</span><span>Aluminum</span><span>Plastik</span><span>Karton</span><span>Bote</span><span>E-waste</span>
+        <span>Bakal</span><span>Tanso</span><span>Aluminum</span><span>Plastik</span><span>Karton</span><span>Bote</span><span>E-waste</span><span>Misc.</span>
       </div>
       <div class="lpPoints">
         <span>
