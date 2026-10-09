@@ -41,6 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <div class="loginSplit">
 
   <section class="loginPane">
+    <a class="loginBack" href="index.php">&larr; Back</a>
     <label class="themeSwitch loginTheme" title="Toggle dark mode">
       <input type="checkbox" id="themeToggle">
       <span class="themeTrack"><span class="themeKnob"></span></span>
