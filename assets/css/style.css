@@ -656,3 +656,146 @@ html[data-theme="dark"] .loginBack:hover{border-color:#f4c430; color:#f4c430;}
 
 .lpNav{position:absolute; left:50%; transform:translateX(-50%); margin-left:0;}
 @media (max-width:700px){.lpNav{display:none;}}
+
+html{scroll-behavior:smooth;}
+.lpBody{background:#fff;}
+.lpMain{max-width:none; margin:0; padding:0; gap:0;}
+.lpMain section{scroll-margin-top:64px;}
+.lpWrap{width:100%; max-width:1180px; margin:0 auto; padding:0 28px;}
+
+.lpHero{border:0; border-radius:0; box-shadow:none; background:radial-gradient(circle at 20% 10%, #ffe27a 0, transparent 45%), radial-gradient(circle at 90% 100%, #cdebd8 0, transparent 55%), #fff4c7;}
+.lpHeroText{background:none; color:#1a1a1a; padding-left:max(40px, calc((100vw - 1180px) / 2));}
+.lpHeroText h1 span{color:#a8800c;}
+.lpHeroText p{color:#4d4d4d;}
+.lpPoints{color:#3a3a36;}
+.lpPoints svg{color:#a8800c;}
+.lpHeroText .heroChips span{border-color:rgba(0,0,0,.15); background:rgba(255,255,255,.65); color:#3a3a36;}
+.lpHeroImg{background:none;}
+@media (max-width:560px){.lpHeroText{padding-left:22px;}}
+
+.lpBand{padding:72px 0;}
+.lpHead{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;}
+.lpHead h2{font-size:30px; font-weight:800; line-height:1.15;}
+@media (max-width:560px){.lpBand{padding:48px 0;} .lpHead h2{font-size:24px;}}
+
+.lpBandWhy{background:#fff; padding-bottom:56px;}
+.lpBandFeat{background:#eaf5ee;}
+
+.lpSplit{display:grid; grid-template-columns:1fr 1fr;}
+.lpHalf{padding:56px 40px 64px; color:#1a1a1a;}
+.lpHalfIn{max-width:540px;}
+.lpHalfBad .lpHalfIn{margin-left:auto;}
+.lpHalf h3{font-size:20px; font-weight:800; margin-bottom:16px;}
+.lpHalf ul{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:12px; font-size:14.5px; line-height:1.55;}
+.lpHalfBad{background:#fde7e1;}
+.lpHalfBad h3{color:#b3341f;}
+.lpHalfGood{background:#dcf0e4;}
+.lpHalfGood h3{color:#1f6b45;}
+@media (max-width:800px){
+  .lpSplit{grid-template-columns:1fr;}
+  .lpHalf{padding:40px 22px 44px;}
+  .lpHalfBad .lpHalfIn{margin-left:0;}
+}
+
+.lpItems{display:grid; grid-template-columns:repeat(3,1fr); gap:48px 32px; margin-top:48px;}
+.lpItem{display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center; font-size:15px; font-weight:700;}
+.lpItem svg{width:56px; height:56px; color:#1a1a1a;}
+.lpItem .a{fill:#f4c430;}
+.lpItem .b{fill:#3f9e6c;}
+@media (max-width:900px){.lpItems{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.lpItems{grid-template-columns:1fr;}}
+
+.lpBandFoot{padding:26px 0; background:#f4c430; color:#1a1a1a;}
+.lpFootIn{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; font-size:13px;}
+
+html[data-theme="dark"] .lpBody{background:#0f0f0e;}
+html[data-theme="dark"] .lpHero{border:0; background:radial-gradient(circle at 25% 15%, #2b2410 0, transparent 45%), radial-gradient(circle at 85% 95%, #12301f 0, transparent 55%), #0f0f0e;}
+html[data-theme="dark"] .lpHeroText{color:#fff;}
+html[data-theme="dark"] .lpHeroText h1 span{color:#f4c430;}
+html[data-theme="dark"] .lpHeroText p{color:#c9c9c4;}
+html[data-theme="dark"] .lpPoints{color:#c9c9c4;}
+html[data-theme="dark"] .lpPoints svg{color:#f4c430;}
+html[data-theme="dark"] .lpHeroText .heroChips span{border-color:rgba(255,255,255,.18); background:rgba(255,255,255,.06); color:#ececea;}
+html[data-theme="dark"] .lpBandWhy{background:#161614;}
+html[data-theme="dark"] .lpBandFeat{background:#1c1b17;}
+html[data-theme="dark"] .lpHalf{color:#ececea;}
+html[data-theme="dark"] .lpHalfBad{background:#2a1713;}
+html[data-theme="dark"] .lpHalfBad h3{color:#f08a78;}
+html[data-theme="dark"] .lpHalfGood{background:#12261b;}
+html[data-theme="dark"] .lpHalfGood h3{color:#6fcf97;}
+html[data-theme="dark"] .lpItem svg{color:#ececea;}
+html[data-theme="dark"] .lpBandFoot{background:#0f0f0e; color:#9a9a95; border-top:1px solid #34342f;}
+html[data-theme="dark"] .lpBandFoot b{color:#f4c430;}
+
+html{scroll-behavior:smooth;}
+.lpBody{background:#fff;}
+.lpMain{max-width:none; margin:0; padding:0; gap:0;}
+.lpMain section{scroll-margin-top:64px;}
+.lpWrap{width:100%; max-width:1180px; margin:0 auto; padding:0 28px;}
+
+.lpHero{border:0; border-radius:0; box-shadow:none; background:radial-gradient(circle at 20% 10%, #ffe27a 0, transparent 45%), radial-gradient(circle at 90% 100%, #cdebd8 0, transparent 55%), #fff4c7;}
+.lpHeroText{background:none; color:#1a1a1a; padding-left:max(40px, calc((100vw - 1180px) / 2));}
+.lpHeroText h1 span{color:#a8800c;}
+.lpHeroText p{color:#4d4d4d;}
+.lpPoints{color:#3a3a36;}
+.lpPoints svg{color:#a8800c;}
+.lpHeroText .heroChips span{border-color:rgba(0,0,0,.15); background:rgba(255,255,255,.65); color:#3a3a36;}
+.lpHeroImg{background:none;}
+@media (max-width:560px){.lpHeroText{padding-left:22px;}}
+
+.lpBand{padding:96px 0;}
+.lpHead{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;}
+.lpHead h2{font-size:30px; font-weight:800; line-height:1.15;}
+@media (max-width:560px){.lpBand{padding:64px 0;} .lpHead h2{font-size:24px;}}
+
+.lpBandWhy{background:#fff; padding-bottom:72px;}
+.lpBandFeat{background:#eaf5ee;}
+
+.lpSplit{display:grid; grid-template-columns:1fr 1fr;}
+.lpHalf{padding:72px 40px 80px; color:#1a1a1a;}
+.lpHalfIn{max-width:540px;}
+.lpHalfBad .lpHalfIn{margin-left:auto;}
+.lpHalf h3{font-size:20px; font-weight:800; margin-bottom:16px;}
+.lpHalf ul{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:12px; font-size:14.5px; line-height:1.55;}
+.lpHalfBad{background:#fde7e1;}
+.lpHalfBad h3{color:#b3341f;}
+.lpHalfGood{background:#dcf0e4;}
+.lpHalfGood h3{color:#1f6b45;}
+@media (max-width:800px){
+  .lpSplit{grid-template-columns:1fr;}
+  .lpHalf{padding:52px 22px 56px;}
+  .lpHalfBad .lpHalfIn{margin-left:0;}
+}
+
+.lpItems{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px;}
+.lpItem{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; min-height:190px; padding:32px 20px; text-align:center; font-size:15px; font-weight:700; background:#fff; border:1px solid #d6d6d3; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,.06); transition:box-shadow .22s ease, border-color .22s ease, transform .22s ease;}
+.lpItem:hover{border-color:#f4c430; box-shadow:0 0 0 3px rgba(244,196,48,.28), 0 8px 22px rgba(244,196,48,.35); transform:translateY(-3px);}
+.lpItem svg{width:56px; height:56px; color:#1a1a1a;}
+.lpItem .a{fill:#f4c430;}
+.lpItem .b{fill:#3f9e6c;}
+@media (max-width:900px){.lpItems{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.lpItems{grid-template-columns:1fr;}}
+
+.lpBandFoot{padding:34px 0; background:#f4c430; color:#1a1a1a;}
+.lpFootIn{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; font-size:13px;}
+
+html[data-theme="dark"] .lpBody{background:#0f0f0e;}
+html[data-theme="dark"] .lpHero{border:0; background:radial-gradient(circle at 25% 15%, #2b2410 0, transparent 45%), radial-gradient(circle at 85% 95%, #12301f 0, transparent 55%), #0f0f0e;}
+html[data-theme="dark"] .lpHeroText{color:#fff;}
+html[data-theme="dark"] .lpHeroText h1 span{color:#f4c430;}
+html[data-theme="dark"] .lpHeroText p{color:#c9c9c4;}
+html[data-theme="dark"] .lpPoints{color:#c9c9c4;}
+html[data-theme="dark"] .lpPoints svg{color:#f4c430;}
+html[data-theme="dark"] .lpHeroText .heroChips span{border-color:rgba(255,255,255,.18); background:rgba(255,255,255,.06); color:#ececea;}
+html[data-theme="dark"] .lpBandWhy{background:#161614;}
+html[data-theme="dark"] .lpBandFeat{background:#141413;}
+html[data-theme="dark"] .lpHalf{color:#ececea;}
+html[data-theme="dark"] .lpHalfBad{background:#2a1713;}
+html[data-theme="dark"] .lpHalfBad h3{color:#f08a78;}
+html[data-theme="dark"] .lpHalfGood{background:#12261b;}
+html[data-theme="dark"] .lpHalfGood h3{color:#6fcf97;}
+html[data-theme="dark"] .lpItem{background:#1e1e1c; border-color:#34342f; box-shadow:none;}
+html[data-theme="dark"] .lpItem:hover{border-color:#f4c430; box-shadow:0 0 0 3px rgba(244,196,48,.22), 0 8px 28px rgba(244,196,48,.28);}
+html[data-theme="dark"] .lpItem svg{color:#ececea;}
+html[data-theme="dark"] .lpBandFoot{background:#0f0f0e; color:#9a9a95; border-top:1px solid #34342f;}
+html[data-theme="dark"] .lpBandFoot b{color:#f4c430;}

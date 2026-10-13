@@ -15,7 +15,7 @@ if(current_user()){
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/landing.js"></script>
 </head>
-<body>
+<body class="lpBody">
 
 <header class="topheader">
   <a class="brandLink" href="index.php"><img src="assets/images/SCRAPLOG_nobg.png" alt="ScrapLog"></a>
@@ -62,12 +62,17 @@ if(current_user()){
     </div>
   </section>
 
-  <section class="card lpSection" id="why">
-    <span class="lpTag">System Comparison</span>
-    <h2>Traditional Manual Logs vs. ScrapLog</h2>
-    <p class="lpLead">See the clear advantage of replacing manual paper logs and spreadsheets with a centralized digital scrap management workflow.</p>
-    <div class="lpCompare">
-      <div class="lpCol lpBad">
+  <section class="lpBand lpBandWhy" id="why">
+    <div class="lpWrap lpHead">
+      <span class="lpTag">System Comparison</span>
+      <h2>Traditional Manual Logs vs. ScrapLog</h2>
+      <p class="lpLead">See the clear advantage of replacing manual paper logs and spreadsheets with a centralized digital scrap management workflow.</p>
+    </div>
+  </section>
+
+  <section class="lpSplit">
+    <div class="lpHalf lpHalfBad">
+      <div class="lpHalfIn">
         <h3>Traditional Manual Method</h3>
         <ul>
           <li><strong>Damaged or Lost Paper Logs:</strong> Paper receipts and logbooks can get stained, torn, or misplaced during heavy yard operations.</li>
@@ -76,7 +81,9 @@ if(current_user()){
           <li><strong>Time-Consuming Audits:</strong> Spending hours every evening matching receipts, cash flow, and daily material totals.</li>
         </ul>
       </div>
-      <div class="lpCol lpGood">
+    </div>
+    <div class="lpHalf lpHalfGood">
+      <div class="lpHalfIn">
         <h3>ScrapLog</h3>
         <ul>
           <li><strong>Secure Cloud Records:</strong> Every entry, weight, and supplier payout is instantly saved to the cloud securely.</li>
@@ -88,41 +95,47 @@ if(current_user()){
     </div>
   </section>
 
-  <section class="card lpSection" id="features">
-    <h2>Built for Modern Scrap Yard Operations</h2>
-    <p class="lpLead">Engineered specifically to handle high-frequency walk-ins, material sorting, pricing fluctuations, and inventory tracking.</p>
-    <div class="lpGrid">
-      <div class="card lpFeature">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8v30M16 40h16M6 14h36"/><path class="a" d="M6 14l-6 14h12z" transform="translate(3 0)"/><path class="a" d="M42 14l-6 14h12z" transform="translate(-9 0)"/></svg>
-        Fast Sorting &amp; Weighing Entry
+  <section class="lpBand lpBandFeat" id="features">
+    <div class="lpWrap">
+      <div class="lpHead">
+        <h2>Built for Modern Scrap Yard Operations</h2>
+        <p class="lpLead">Engineered specifically to handle high-frequency walk-ins, material sorting, pricing fluctuations, and inventory tracking.</p>
       </div>
-      <div class="card lpFeature">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="b" cx="24" cy="25" r="15"/><path class="a" d="M24 25V8a17 17 0 0 1 17 17z"/></svg>
-        Live Category Breakdown
-      </div>
-      <div class="card lpFeature">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="b" d="M6 24L24 6h16v16L22 40z"/><circle cx="33" cy="13" r="2.5"/></svg>
-        Editable Price Legend
-      </div>
-      <div class="card lpFeature">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="a" x="16" y="8" width="24" height="32" rx="3"/><rect class="b" x="8" y="12" width="24" height="32" rx="3"/><path d="M14 22h12M14 28h12M14 34h8"/></svg>
-        Automated Sales &amp; Dispatch Logs
-      </div>
-      <div class="card lpFeature">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="b" cx="24" cy="24" r="17"/><path d="M24 13v11l7 4"/></svg>
-        Recent Activity Audit Trail
-      </div>
-      <div class="card lpFeature">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="a" d="M24 5l14 5v11c0 9-6 15-14 20C16 36 10 30 10 21V10z"/><path class="b" d="M24 5l14 5v11c0 9-6 15-14 20z"/></svg>
-        Multi-User &amp; Role Management
+      <div class="lpItems">
+        <div class="lpItem">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8v30M16 40h16M6 14h36"/><path class="a" d="M6 14l-6 14h12z" transform="translate(3 0)"/><path class="a" d="M42 14l-6 14h12z" transform="translate(-9 0)"/></svg>
+          Fast Sorting &amp; Weighing Entry
+        </div>
+        <div class="lpItem">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="b" cx="24" cy="25" r="15"/><path class="a" d="M24 25V8a17 17 0 0 1 17 17z"/></svg>
+          Live Category Breakdown
+        </div>
+        <div class="lpItem">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="b" d="M6 24L24 6h16v16L22 40z"/><circle cx="33" cy="13" r="2.5"/></svg>
+          Editable Price Legend
+        </div>
+        <div class="lpItem">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="a" x="16" y="8" width="24" height="32" rx="3"/><rect class="b" x="8" y="12" width="24" height="32" rx="3"/><path d="M14 22h12M14 28h12M14 34h8"/></svg>
+          Automated Sales &amp; Dispatch Logs
+        </div>
+        <div class="lpItem">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="b" cx="24" cy="24" r="17"/><path d="M24 13v11l7 4"/></svg>
+          Recent Activity Audit Trail
+        </div>
+        <div class="lpItem">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="a" d="M24 5l14 5v11c0 9-6 15-14 20C16 36 10 30 10 21V10z"/><path class="b" d="M24 5l14 5v11c0 9-6 15-14 20z"/></svg>
+          Multi-User &amp; Role Management
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="lpFoot">
-    <b>ScrapLog</b>
-    <span>Junkshop Inventory and Sales Analytics Management System</span>
-  </div>
+  <footer class="lpBand lpBandFoot">
+    <div class="lpWrap lpFootIn">
+      <b>ScrapLog</b>
+      <span>Junkshop Inventory and Sales Analytics Management System</span>
+    </div>
+  </footer>
 
 </main>
 </body>
