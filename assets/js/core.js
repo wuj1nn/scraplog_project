@@ -14,7 +14,7 @@ function stockTotal(){
 }
 
 function projectedTotal(){
-  return CAT_ORDER.reduce(function(a, k){ return a + CAT_META[k].stock * CAT_META[k].sell; }, 0);
+  return CAT_ORDER.reduce(function(a, k){ return a + CAT_META[k].proj; }, 0);
 }
 
 function capBadge(cap){
@@ -27,4 +27,18 @@ function esc(s){
   return String(s).replace(/[&<>"']/g, function(ch){
     return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch];
   });
+}
+
+function peso(n, dec){
+  dec = dec || 0;
+  return '₱' + Number(n).toLocaleString(undefined, { minimumFractionDigits:dec, maximumFractionDigits:dec });
+}
+
+function fmtKg(n){
+  return n.toLocaleString(undefined, { maximumFractionDigits:2 });
+}
+
+function setRing(id, pct){
+  let el = dgebi(id);
+  if(el) el.style.setProperty('--pct', Math.max(0, Math.min(100, pct)) + '%');
 }

@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/db.php';
 
 if(current_user()){
-    header('Location: dashboard.php');
+    header('Location: ' . home_for(current_user()['role']));
     exit;
 }
 
@@ -20,9 +20,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         session_regenerate_id(true);
         $_SESSION['user'] = [
             'id' => (int)$u['id'], 'username' => $u['username'], 'role' => $u['role'], 'name' => $u['name'],
-            'initials' => strtoupper(substr($u['name'], 0, 2)), 'label' => $u['role'] === 'admin' ? 'Owner' : 'Employee',
+            'initials' => strtoupper(substr($u['name'], 0, 2)), 'label' => ['admin' => 'Owner', 'staff' => 'Employee', 'customer' => 'Customer'][$u['role']],
         ];
-        header('Location: dashboard.php');
+        header('Location: ' . home_for($u['role']));
         exit;
     }
     $error = 'Wrong username or password.';
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ScrapLog — Log in</title>
-<script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
+<script src="assets/js/theme.js"></script>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -74,14 +74,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 </div>
 
-<script>
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.checked = document.documentElement.dataset.theme === 'dark';
-themeToggle.addEventListener('change', function(){
-  let theme = themeToggle.checked ? 'dark' : 'light';
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem('theme', theme);
-});
-</script>
 </body>
 </html>

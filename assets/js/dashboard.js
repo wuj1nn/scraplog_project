@@ -1,17 +1,13 @@
 function todayTotals(){
   let today = new Date().toDateString();
-  let t = { kg:0, soldKg:0, sales:0 };
+  let t = { kg:0, soldKg:0, rmKg:0, sales:0 };
   LOG.forEach(function(r){
     if(parseTime(r.t).toDateString() !== today) return;
     if(r.type === 'in') t.kg += r.kg;
+    else if(r.type === 'rm') t.rmKg += r.kg;
     else { t.sales++; t.soldKg += r.kg; }
   });
   return t;
-}
-
-function setRing(id, pct){
-  let el = dgebi(id);
-  if(el) el.style.setProperty('--pct', Math.max(0, Math.min(100, pct)) + '%');
 }
 
 function renderDashRings(){
@@ -48,19 +44,21 @@ function renderDashActivity(){
   let showAmt = ROLE === 'admin';
   let body = dgebi('dashActivityBody');
   if(!ACTIVITY.length){
-    body.innerHTML = '<tr><td colspan="' + (showAmt ? 5 : 4) + '" style="text-align:center;color:#999;padding:24px 0;">No activity yet. Sort some material or record a sale to get started.</td></tr>';
+    body.innerHTML = '<tr><td colspan="' + (showAmt ? 5 : 4) + '" style="text-align:center;color:#999;padding:24px 0;">No activity yet. Add some material or record a sale to get started.</td></tr>';
     return;
   }
   body.innerHTML = ACTIVITY.map(function(r){
     let c = CAT_META[r.code];
-    let sold = r.type === 'out';
+    let tag = itemTag(ITEMS[r.item], r.detail);
+    let sold = r.type === 'out', removed = r.type === 'rm';
+    let badge = removed ? '<span class="badge rm">Removed</span>' : '<span class="badge ' + (sold ? 'high' : 'pos') + '">' + (sold ? 'Sold' : 'Sorted in') + '</span>';
     return '<tr>' +
       '<td><div class="rowId"><div class="rowAvatar" style="background:' + c.color + '">' + c.short.slice(0,2).toUpperCase() + '</div>' +
-      '<div class="txt"><b>' + c.label + '</b><span>Category</span></div></div></td>' +
-      '<td><span class="badge ' + (sold ? 'high' : 'pos') + '">' + (sold ? 'Sold' : 'Sorted in') + '</span></td>' +
+      '<div class="txt"><b>' + c.label + '</b><span>' + (tag ? esc(tag) : 'Category') + '</span></div></div></td>' +
+      '<td>' + badge + '</td>' +
       '<td>' + (r.party ? esc(r.party) : '—') + '</td>' +
       '<td class="num">' + r.kg.toFixed(1) + '</td>' +
-      (showAmt ? '<td class="num">' + (r.amt !== null ? '₱' + r.amt.toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2}) : '—') + '</td>' : '') +
+      (showAmt ? '<td class="num">' + (r.amt !== null ? (removed ? '−' : '') + '₱' + r.amt.toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2}) : '—') + '</td>' : '') +
       '</tr>';
   }).join('');
 }
@@ -88,9 +86,10 @@ function renderDashDonut(){
 function renderDashToday(){
   if(!dgebi('todayIn')) return;
   let t = todayTotals();
-  let net = t.kg - t.soldKg;
+  let net = t.kg - t.soldKg - t.rmKg;
   setText('todayIn', t.kg.toFixed(1));
   setText('todaySold', t.soldKg.toFixed(1));
+  setText('todayRm', t.rmKg.toFixed(1));
   setText('todayNet', (net > 0 ? '+' : '') + net.toFixed(1));
 }
 

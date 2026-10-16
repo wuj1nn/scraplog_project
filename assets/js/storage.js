@@ -20,17 +20,21 @@ function renderStorage(){
 
   if(storageChartType === 'table'){
     titleEl.textContent = 'Storage breakdown';
-    descEl.textContent = showValue ? 'Capacity level and value per category' : 'Capacity level per category';
+    descEl.textContent = showValue ? 'Capacity level and value per category and item' : 'Capacity level per category and item';
     dgebi('storageTableBody').innerHTML = CAT_ORDER.map(function(k){
       let c = CAT_META[k];
       let b = capBadge(c.cap);
-      let value = (c.stock * c.buy).toFixed(2);
+      let kids = ITEMS_OF[k].length > 1 ? ITEMS_OF[k].filter(function(i){ return i.stock > 0; }) : [];
+      let subs = kids.map(function(i){
+        return '<tr class="subRow"><td>' + esc(i.other ? 'Other' : i.name) + '</td><td></td><td class="num">' + i.stock + ' kg</td>' +
+          (showValue ? '<td class="num">' + peso(i.stock * i.buy, 2) + '</td>' : '') + '</tr>';
+      }).join('');
       return '<tr>' +
         '<td><div class="rowId"><div class="rowAvatar" style="background:' + c.color + '">' + c.short.slice(0,2).toUpperCase() + '</div><div class="txt"><b>' + c.label + '</b><span>' + c.stock + ' kg on hand</span></div></div></td>' +
         '<td><div style="display:flex;align-items:center;gap:10px;"><div class="capacityTrack"><div class="capacityFill" style="width:' + c.cap + '%;background:' + c.color + '"></div></div><span class="badge ' + b.cls + '">' + b.label + '</span></div></td>' +
         '<td class="num">' + c.stock + ' kg</td>' +
-        (showValue ? '<td class="num">₱' + Number(value).toLocaleString(undefined,{minimumFractionDigits:2}) + '</td>' : '') +
-        '</tr>';
+        (showValue ? '<td class="num">' + peso(c.value, 2) + '</td>' : '') +
+        '</tr>' + subs;
     }).join('');
     return;
   }
@@ -63,10 +67,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 let historyRange = 30;
 
-function fmtKg(n){
-  return n.toLocaleString(undefined, { maximumFractionDigits:2 });
-}
-
 function fmtDate(d){
   return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) + ', ' +
     d.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
@@ -83,7 +83,7 @@ function historyRows(){
     return r.type === 'in' && (cat === 'all' || r.code === cat) && parseTime(r.t) >= start;
   }).map(function(r){
     let c = CAT_META[r.code];
-    return { date:parseTime(r.t), label:c.label, color:c.color, party:r.party, kg:r.kg };
+    return { date:parseTime(r.t), label:c.label, color:c.color, tag:itemTag(ITEMS[r.item], r.detail), party:r.party, kg:r.kg };
   });
 
   let sorters = {
@@ -95,7 +95,7 @@ function historyRows(){
       if(!a.party !== !b.party) return a.party ? -1 : 1;
       return a.party.localeCompare(b.party) || b.date - a.date;
     },
-    type:function(a, b){ return a.label.localeCompare(b.label) || b.date - a.date; }
+    type:function(a, b){ return a.label.localeCompare(b.label) || a.tag.localeCompare(b.tag) || b.date - a.date; }
   };
   return rows.sort(sorters[dgebi('historySort').value]);
 }
@@ -105,7 +105,7 @@ function renderHistory(){
   let total = rows.reduce(function(a, r){ return a + r.kg; }, 0);
   dgebi('historyBody').innerHTML = rows.length ? rows.map(function(r){
     return '<tr><td>' + fmtDate(r.date) + '</td>' +
-      '<td><span class="catChip"><i style="background:' + r.color + '"></i>' + esc(r.label) + '</span></td>' +
+      '<td><span class="catChip"><i style="background:' + r.color + '"></i>' + esc(r.label) + (r.tag ? '<span class="catSub"> · ' + esc(r.tag) + '</span>' : '') + '</span></td>' +
       '<td>' + (r.party ? esc(r.party) : '—') + '</td>' +
       '<td class="num">' + fmtKg(r.kg) + '</td></tr>';
   }).join('') : '<tr><td colspan="4" style="text-align:center;color:#999;padding:32px 0;">No entries for this filter.</td></tr>';

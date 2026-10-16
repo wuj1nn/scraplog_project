@@ -30,7 +30,7 @@
 
   <p style="font-size:11.5px;color:#999;letter-spacing:.04em;margin:0 0 12px;">QUICK ACTIONS</p>
   <div class="quickGrid">
-    <a class="quickCard" href="sort.php"><div class="ico">&#9636;</div><h3>Sort materials</h3><p>Log incoming scrap by category as it's weighed in.</p></a>
+    <a class="quickCard" href="manage.php"><div class="ico">&#9636;</div><h3>Manage storage</h3><p>Log incoming scrap and check today's prices.</p></a>
     <a class="quickCard" href="sale.php"><div class="ico">&#9635;</div><h3>Record sale</h3><p>Pick material and quantity — stock updates automatically.</p></a>
     <a class="quickCard" href="storage.php"><div class="ico">&#9637;</div><h3>Current storage</h3><p>See what's on hand in every category.</p></a>
   </div>

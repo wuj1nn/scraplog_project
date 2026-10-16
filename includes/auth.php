@@ -2,7 +2,8 @@
 session_start();
 date_default_timezone_set('Asia/Manila');
 
-$STAFF_PAGES = ['dashboard', 'sort', 'sale', 'storage'];
+$STAFF_PAGES = ['dashboard', 'manage', 'sale', 'storage'];
+$CUSTOMER_PAGES = ['prices'];
 
 function e($s){
     return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8');
@@ -17,9 +18,14 @@ function current_user(){
     return $_SESSION['user'] ?? null;
 }
 
+function home_for($role){
+    return $role === 'customer' ? 'prices.php' : 'dashboard.php';
+}
+
 function can_access($role, $page){
-    global $STAFF_PAGES;
-    return $role === 'admin' || in_array($page, $STAFF_PAGES);
+    global $STAFF_PAGES, $CUSTOMER_PAGES;
+    if($role === 'admin') return true;
+    return in_array($page, $role === 'customer' ? $CUSTOMER_PAGES : $STAFF_PAGES, true);
 }
 
 function require_page($page, $prefix = ''){
@@ -30,7 +36,7 @@ function require_page($page, $prefix = ''){
         exit;
     }
     if(!can_access($user['role'], $page)){
-        header('Location: ' . $prefix . 'dashboard.php');
+        header('Location: ' . $prefix . home_for($user['role']));
         exit;
     }
 }

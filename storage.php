@@ -62,7 +62,7 @@ include __DIR__ . '/includes/header.php';
     </div>
     <div class="modalBody tableWrap">
       <table>
-        <thead><tr><th>Date &amp; time</th><th>Category</th><th>Supplier</th><th class="num">Kg</th></tr></thead>
+        <thead><tr><th>Date &amp; time</th><th>Material</th><th>Supplier</th><th class="num">Kg</th></tr></thead>
         <tbody id="historyBody"></tbody>
       </table>
     </div>

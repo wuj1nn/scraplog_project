@@ -45,6 +45,7 @@
             <div class="healthRow">
               <div class="healthTile"><b id="todayIn">0</b><span>kg sorted in</span></div>
               <div class="healthTile"><b id="todaySold">0</b><span>kg sold</span></div>
+              <div class="healthTile"><b id="todayRm">0</b><span>kg removed</span></div>
               <div class="healthTile"><b id="todayNet">0</b><span>net change</span></div>
             </div>
           </div>
@@ -53,8 +54,8 @@
                       
       <p style="font-size:11.5px;color:#999;letter-spacing:.04em;margin:0 0 12px;">QUICK ACTIONS</p>
       <div class="quickGrid">
-        <a class="quickCard" href="sort.php"><div class="ico">&#9636;</div><h3>Sort materials</h3><p>Log incoming scrap by category as it's weighed in.</p></a>
-        <a class="quickCard" href="price.php"><div class="ico">&#8369;</div><h3>Edit price legend</h3><p>Adjust buying &amp; selling prices per kilo.</p></a>
+        <a class="quickCard" href="manage.php"><div class="ico">&#9636;</div><h3>Manage storage</h3><p>Log incoming scrap and edit the price legend.</p></a>
+        <a class="quickCard" href="remove.php"><div class="ico">&#8854;</div><h3>Storage removal</h3><p>Write off rusted or damaged material.</p></a>
         <a class="quickCard" href="sale.php"><div class="ico">&#9635;</div><h3>Record sale</h3><p>Pick material and quantity — stock updates automatically.</p></a>
       </div>
 
